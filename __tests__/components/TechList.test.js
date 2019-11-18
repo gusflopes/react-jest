@@ -20,11 +20,10 @@ describe('TechList component', () => {
   });
 
   it('should be able to add new tech', () => {
-    const { getByTestId, getByLabelText } = render(<TechList />);
-
     const dispatch = jest.fn();
-
     useDispatch.mockReturnValue(dispatch);
+
+    const { getByTestId, getByLabelText } = render(<TechList />);
 
     fireEvent.change(getByLabelText('Tech'), { target: { value: 'Node.js' } });
     fireEvent.submit(getByTestId('tech-form'));
